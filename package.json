@@ -1,0 +1,10 @@
+{
+  "name": "donations-site",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "netlify dev"
+  },
+  "dependencies": {
+    "stripe": "^12.0.0"
+  }
+}
