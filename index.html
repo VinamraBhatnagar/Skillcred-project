@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="script.js"></script>
   <title>Social Good Donations</title>
   <style>
     body {
@@ -184,7 +185,7 @@
     });
 
     // Stripe setup
-    const stripe = Stripe("YOUR_PUBLISHABLE_KEY"); // replace with your key
+    const stripe = Stripe("pk_test_51RwfgG2OvqG6TKbnPLEmlkNbmWOyxc75JMfWUNESnW7rqcq5752n1ENiYx0A2K5jQinBP88ZFfKdubHhE7motxGg00cWZfqx1n"); // replace with your key
     const elements = stripe.elements();
     const card = elements.create("card");
     card.mount("#card-element");
