@@ -1,4 +1,6 @@
 {
   "title": "Support Our Cause 💙",
-  "description": "Your donation helps us build more impactful projects. Every contribution counts!"
+  "description": "Your donation helps us build more impactful projects. Every contribution counts!",
+  "stripe_publishable_key": "pk_test_51RwfgG2OvqG6TKbnPLEmlkNbmWOyxc75JMfWUNESnW7rqcq5752n1ENiYx0A2K5jQinBP88ZFfKdubHhE7motxGg00cWZfqx1n",
+  "donation_amounts": [5, 10, 20, 50, 100]
 }
