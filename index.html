@@ -55,7 +55,6 @@
       margin: 1rem 0;
       flex-wrap: wrap;
     }
-    /* Updated styles for dynamically created buttons */
     #donation-buttons button {
       background: rgba(255,255,255,0.18);
       border: 1px solid rgba(255,255,255,0.3);
@@ -107,6 +106,7 @@
     #error-message {
       color: #ffbaba;
       margin-top: 0.5rem;
+      min-height: 1.2em; /* Reserve space for the error message */
     }
   </style>
   <script src="https://js.stripe.com/v3/"></script>
@@ -115,8 +115,8 @@
 <body>
   <div class="container">
     <div class="card">
-      <h1 id="org">RiverAid</h1>
-      <p class="tagline" id="tagline">Clean water for villages.</p>
+      <h1 id="title">Donation Title</h1>
+      <p class="tagline" id="description">Tagline about the cause.</p>
 
       <h2>Choose your donation</h2>
       
