@@ -44,7 +44,7 @@ exports.handler = async (event) => {
 
       // Send the email using Resend
       await resend.emails.send({
-        from: 'Donations <vinibhatnagar123@gmail.com>', // ✅ make sure this email is verified in Resend
+        from: 'Donations <vinibhatnagar64@gmail.com>', // ✅ make sure this email is verified in Resend
         to: donorEmail,
         subject: 'A Heartfelt Thank You For Your Donation!',
         text: emailText,
