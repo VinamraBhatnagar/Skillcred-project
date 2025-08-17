@@ -41,7 +41,7 @@ exports.handler = async (event) => {
 
       // Send the email using your chosen email service
       await resend.emails.send({
-        from: 'Donations <onboarding@resend.dev>', // IMPORTANT: Use a verified sender email. 'onboarding@resend.dev' is for testing only.
+        from: 'Donations <vinibhatnagar123@gmail.com>', // IMPORTANT: Use a verified sender email. 'onboarding@resend.dev' is for testing only.
         to: donorEmail,
         subject: 'A Heartfelt Thank You For Your Donation!',
         text: emailText,
