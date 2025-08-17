@@ -43,35 +43,36 @@ document.addEventListener("DOMContentLoaded", async () => {
           return;
         }
 
-        // Create PaymentIntent via Netlify Function
+        // ✅ Get the email BEFORE creating the PaymentIntent
+        const donorEmail = document.getElementById('email-input').value;
+
+        // ✅ Send amount + email to Netlify Function
         const res = await fetch("/.netlify/functions/create-payment-intent", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ amount: selectedAmount * 100 }) // convert to cents
+          body: JSON.stringify({ 
+            amount: selectedAmount * 100, // convert to cents
+            email: donorEmail             // <-- NEW
+          })
         });
         const { clientSecret } = await res.json();
 
-        // --- THIS IS THE MODIFIED SECTION ---
-        // 1. Get the email from the new input field
-        const donorEmail = document.getElementById('email-input').value;
-
-        // 2. Confirm payment with Stripe.js, now including the email
+        // Confirm payment with Stripe.js, still including the email
         const { error } = await stripe.confirmCardPayment(clientSecret, {
           payment_method: {
             card: cardElement,
             billing_details: {
-              email: donorEmail, // This line sends the email to Stripe
+              email: donorEmail, // Stripe will store this inside the PaymentMethod
             },
           }
         });
-        // --- END OF MODIFIED SECTION ---
 
         if (error) {
-            if (error.message && error.message.toLowerCase().includes("cancel")) {
-                window.location.href = "/cancel.html";
-            } else {
-                document.getElementById("error-message").textContent = error.message;
-            }
+          if (error.message && error.message.toLowerCase().includes("cancel")) {
+            window.location.href = "/cancel.html";
+          } else {
+            document.getElementById("error-message").textContent = error.message;
+          }
         } else {
           window.location.href = "/success.html";
         }
@@ -81,8 +82,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   } catch (error) {
     console.error("A critical error occurred in the script:", error);
     const errorMessageDiv = document.getElementById("error-message");
-    if(errorMessageDiv) {
-        errorMessageDiv.textContent = "An error occurred while loading the donation form. Please try refreshing the page.";
+    if (errorMessageDiv) {
+      errorMessageDiv.textContent = "An error occurred while loading the donation form. Please try refreshing the page.";
     }
   }
 });
