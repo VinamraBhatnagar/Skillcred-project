@@ -36,7 +36,7 @@ exports.handler = async (event) => {
       }
 
       // Call the Gemini API to generate a personalized email
-      const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+      const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash-latest"});
       const prompt = `A donor just gave $${amount} to our 'Social Good Donations' charity for clean water. Write a short, heartfelt, and personalized thank you email to them. Mention the impact of their generous donation. Keep it under 150 words.`;
 
       const result = await model.generateContent(prompt);
