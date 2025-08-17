@@ -51,10 +51,20 @@ document.addEventListener("DOMContentLoaded", async () => {
         });
         const { clientSecret } = await res.json();
 
-        // Confirm payment with Stripe.js
+        // --- THIS IS THE MODIFIED SECTION ---
+        // 1. Get the email from the new input field
+        const donorEmail = document.getElementById('email-input').value;
+
+        // 2. Confirm payment with Stripe.js, now including the email
         const { error } = await stripe.confirmCardPayment(clientSecret, {
-          payment_method: { card: cardElement }
+          payment_method: {
+            card: cardElement,
+            billing_details: {
+              email: donorEmail, // This line sends the email to Stripe
+            },
+          }
         });
+        // --- END OF MODIFIED SECTION ---
 
         if (error) {
             if (error.message && error.message.toLowerCase().includes("cancel")) {
