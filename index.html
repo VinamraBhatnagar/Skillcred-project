@@ -80,6 +80,28 @@
       margin-top: 1rem;
       text-align: left;
     }
+    /* Email input styling */
+    #email-input {
+      width: 100%;
+      padding: 0.9rem 1rem;
+      margin-bottom: 1rem;
+      border: none;
+      border-radius: 12px;
+      font-size: 1rem;
+      background: rgba(255,255,255,0.15);
+      color: #fff;
+      box-shadow: inset 0 0 10px rgba(0,0,0,0.25);
+      transition: 0.3s;
+    }
+    #email-input::placeholder {
+      color: #dcdcdc;
+      opacity: 0.8;
+    }
+    #email-input:focus {
+      outline: none;
+      background: rgba(255,255,255,0.25);
+      box-shadow: 0 0 10px rgba(255, 81, 47, 0.6);
+    }
     #card-element {
       padding: 1rem;
       background: rgba(255,255,255,0.15);
@@ -102,6 +124,25 @@
     #submit:hover {
       transform: translateY(-3px) scale(1.03);
       box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+    }
+    /* Cancel button */
+    #cancel {
+      width: 100%;
+      margin-top: 0.8rem;
+      padding: 0.8rem;
+      border-radius: 15px;
+      border: none;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      background: rgba(255,255,255,0.2);
+      color: #fff;
+      transition: 0.3s;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.35);
+    }
+    #cancel:hover {
+      background: rgba(255,255,255,0.35);
+      transform: translateY(-2px) scale(1.03);
     }
     #error-message {
       color: #ffbaba;
@@ -126,11 +167,11 @@
         <input type="email" id="email-input" placeholder="Enter your email" required>
         <div id="card-element"></div>
         <button id="submit" type="submit">Donate Now</button>
+        <button id="cancel" type="button" onclick="window.location.href='cancel.html'">Cancel Payment</button>
         <div id="error-message"></div>
       </form>
 
     </div>
   </div>
-
 </body>
 </html>
