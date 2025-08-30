@@ -1,10 +1,78 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Success</title>
+  <meta charset="UTF-8">
+  <title>Donation Success</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #fff;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(18px);
+      border-radius: 20px;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.45),
+                  0 8px 20px rgba(0, 0, 0, 0.3),
+                  inset 0 0 25px rgba(255,255,255,0.08);
+      padding: 2.5rem;
+      text-align: center;
+      animation: float 6s ease-in-out infinite;
+    }
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-12px); }
+      100% { transform: translateY(0px); }
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+    }
+    p {
+      color: #dfe6e9;
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+    a {
+      display: inline-block;
+      padding: 0.9rem 1.5rem;
+      border-radius: 15px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      text-decoration: none;
+      background: linear-gradient(45deg, #56ab2f, #a8e063);
+      color: white;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+      transition: 0.3s;
+    }
+    a:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+    }
+    .emoji {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      animation: pop 1.5s ease-in-out infinite;
+    }
+    @keyframes pop {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+  </style>
 </head>
-<body style="text-align:center; background:#0f172a; color:white; font-family:Arial;">
-  <h1>🎉 Thank you for your donation!</h1>
-  <a href="/">Go back</a>
+<body>
+  <div class="card">
+    <div class="emoji">🎉</div>
+    <h1>Thank You for Your Donation!</h1>
+    <p>Your generosity makes a real difference. 💖</p>
+    <a href="/">⬅ Go Back</a>
+  </div>
 </body>
 </html>
